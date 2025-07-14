@@ -36,8 +36,10 @@ public class Bazik {
     }
 
     public String toString(){
-        String result = "Color car :" + getColor() + " Wheel car :" + getWheel() + " Nember car :" + getNumber();
+        String result = "Color car :" + getColor() + " Wheel car :" + getWheel() + " Number car :" + getNumber();
         System.out.println(result);
         return result;
         }
     }
+
+
