@@ -1,6 +1,6 @@
 package com.gmail.ahmedded.homework.homework5;
 
-// Клас-модель товару
+// Клас-модель товаруру
 public class Product {
 
     String name;
