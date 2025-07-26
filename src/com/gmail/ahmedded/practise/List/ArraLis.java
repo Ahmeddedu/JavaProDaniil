@@ -30,5 +30,21 @@ public class ArraLis {
             System.out.println(i + " " + cars.get(i));
         }
 
+        System.out.println("------");
+
+        cars.remove(1);
+
+        for(int i = 0; i < cars.size(); i++){
+            System.out.println(i + " " + cars.get(i));
+        }
+
+        boolean hasAudi = cars.contains("Audi");
+        boolean hasBmw = cars.contains("Bmw");
+
+        System.out.println("Has Audi in our garage - " + hasAudi);
+        System.out.println("Has Bmw in our garage - " + hasBmw);
+
+
+
     }
 }
