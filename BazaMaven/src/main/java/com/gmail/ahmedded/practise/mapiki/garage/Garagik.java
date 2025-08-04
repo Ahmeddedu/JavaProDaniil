@@ -1,7 +1,7 @@
 package com.gmail.ahmedded.practise.mapiki.garage;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Garagik {
     public static void main(String[] args) throws InterruptedException {

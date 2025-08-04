@@ -1,7 +1,5 @@
 package com.gmail.ahmedded.practise.constructor;
 
-import java.sql.SQLOutput;
-
 
 public class Baza {
     private String name;

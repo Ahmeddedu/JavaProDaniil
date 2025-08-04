@@ -1,6 +1,5 @@
 package com.gmail.ahmedded.practise.List;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public class ArraLis {
