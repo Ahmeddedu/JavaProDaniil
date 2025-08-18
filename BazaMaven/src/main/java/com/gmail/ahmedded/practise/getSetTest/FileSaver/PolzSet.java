@@ -1,9 +1,6 @@
-package com.gmail.ahmedded.practise.getSetTest.Probnik;
+package com.gmail.ahmedded.practise.getSetTest.FileSaver;
 
 import lombok.SneakyThrows;
-
-import java.lang.foreign.SymbolLookup;
-import java.util.Scanner;
 
 public class PolzSet {
     @SneakyThrows

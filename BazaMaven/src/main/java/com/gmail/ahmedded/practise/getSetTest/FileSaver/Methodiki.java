@@ -1,10 +1,9 @@
-package com.gmail.ahmedded.practise.getSetTest.Probnik;
+package com.gmail.ahmedded.practise.getSetTest.FileSaver;
 
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Methodiki {
