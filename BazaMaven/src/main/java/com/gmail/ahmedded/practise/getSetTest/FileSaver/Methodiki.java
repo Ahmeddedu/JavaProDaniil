@@ -85,14 +85,14 @@ public class Methodiki {
         }
     }
 
-    public boolean writeInFile(BazaDoc user){
-        try{
-            FileWriter appendWriter = new FileWriter(file)
-        } catch (IOException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-            System.exit(0);
-            return false;
-        }
-    }
+    //public boolean writeInFile(BazaDoc user){
+    //    try{
+    //        FileWriter appendWriter = new FileWriter(file)
+    //    } catch (IOException e) {
+    //        System.out.println("Something went wrong: " + e.getMessage());
+    //        System.exit(0);
+    //        return false;
+    //    }
+    //}
 
 }
