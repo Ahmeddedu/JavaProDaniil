@@ -35,13 +35,14 @@ public class FileMiniDoc {
                 if(choseDelete == 1){
                     if(fileDoc.delete()){
                         System.out.println("File deleted");
+                        System.exit(0);
                     } else {
                         System.out.println("Failed to delete file");
+                        System.exit(0);
                     }
                 }else{
                     System.out.println("Your file not download");
                     System.exit(0);
-
                 }
 
             }
