@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Methodiki {
 
-    private final String BAZA_PATH = "/Users/ahmedik/Documents/JavaProject/JavaProDaniil/BazaMaven/src/main/java/com/gmail/ahmedded/practise/getSetTest/Probnik/";
+    private final String BAZA_PATH = "/Users/ahmedik/Documents/JavaProject/JavaProDaniil/BazaMaven/src/main/java/com/gmail/ahmedded/practise/getSetTest/FileSaver/";
     private final Scanner scanner = new Scanner(System.in);
 
     private String readString(String prompt) {
@@ -71,6 +71,8 @@ public class Methodiki {
 
             if(fileDoc.exists()){
                 System.out.println("File already exists!");
+                FileWriter writeBaze = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt");
+                writeBaze.write(toString());
                 return false;
             } else {
                 fileDoc.createNewFile();
@@ -85,14 +87,25 @@ public class Methodiki {
         }
     }
 
-    //public boolean writeInFile(BazaDoc user){
-    //    try{
-    //        FileWriter appendWriter = new FileWriter(file)
-    //    } catch (IOException e) {
-    //        System.out.println("Something went wrong: " + e.getMessage());
-    //        System.exit(0);
-    //        return false;
-    //    }
-    //}
+    public boolean writeInFile(BazaDoc user){
+        try{
+            FileWriter appendWriter = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt", true);
+            String result = scanner.nextLine();
+            appendWriter.write(result + System.lineSeparator());
+            appendWriter.close();
+            System.out.println("All done ;)");
+            return true;
+        } catch (IOException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+            System.exit(0);
+            return false;
+        }
+
+    }
+
+    public boolean hasAFile(BazaDoc user){
+        File fileDoc = new File(BAZA_PATH + user.getNameFile() + ".txt");
+        return fileDoc.exists();
+    }
 
 }
