@@ -1,6 +1,5 @@
 package com.gmail.ahmedded.practise.getSetTest.FileSaver;
 
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,12 +40,14 @@ public class Methodiki {
 
         return user;
     }
+
     public int ask(String text) {
         while (true) {
             System.out.println(text);
 
             if (scanner.hasNextInt()) {
                 int result = scanner.nextInt();
+                scanner.nextLine(); // очищаем буфер, чтобы не мешал nextLine()
                 return result;
             } else {
                 System.out.println("Type only number ");
@@ -55,10 +56,8 @@ public class Methodiki {
         }
     }
 
-
     public String nameFile(BazaDoc user){
-        scanner.nextLine();
-        System.out.println("Pls typr name of file :");
+        System.out.println("Pls type name of file :");
         String FileName = scanner.nextLine();
         user.setNameFile(FileName);
         return FileName;
@@ -70,16 +69,10 @@ public class Methodiki {
 
             if (fileDoc.exists()) {
                 System.out.println("File already exists!");
-                FileWriter writeBaze = new FileWriter(fileDoc);
-                writeBaze.write(user.toString());
-                writeBaze.close();
                 return false;
             } else {
                 if (fileDoc.createNewFile()) {
                     System.out.println("File was made: " + fileDoc.getName());
-                    FileWriter writeBaze = new FileWriter(fileDoc);
-                    writeBaze.write(user.toString());
-                    writeBaze.close();
                     return true;
                 } else {
                     return false;
@@ -92,21 +85,21 @@ public class Methodiki {
         }
     }
 
-
     public boolean writeInFile(BazaDoc user){
         try{
-            FileWriter appendWriter = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt", true);
+            System.out.println("Type text to append into file:");
             String result = scanner.nextLine();
+
+            FileWriter appendWriter = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt", true);
             appendWriter.write(result + System.lineSeparator());
             appendWriter.close();
+
             System.out.println("All done ;)");
             return true;
         } catch (IOException e) {
             System.out.println("Something went wrong: " + e.getMessage());
-            System.exit(0);
             return false;
         }
-
     }
 
     public boolean hasAFile(BazaDoc user){
@@ -114,4 +107,11 @@ public class Methodiki {
         return fileDoc.exists();
     }
 
+    public void saveUserInfo(BazaDoc user) {
+        try (FileWriter writer = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt", true)) {
+            writer.write(user.toString() + System.lineSeparator());
+        } catch (IOException e) {
+            System.out.println("Error saving user info: " + e.getMessage());
+        }
+    }
 }
