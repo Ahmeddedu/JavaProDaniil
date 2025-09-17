@@ -41,21 +41,20 @@ public class Methodiki {
 
         return user;
     }
-
-    public int ask(String text){
-
-        while(true){
+    public int ask(String text) {
+        while (true) {
             System.out.println(text);
 
-            if(scanner.hasNextInt()){
+            if (scanner.hasNextInt()) {
                 int result = scanner.nextInt();
                 return result;
-            } else{
-                System.out.println("Type oly number ");
+            } else {
+                System.out.println("Type only number ");
                 scanner.next();
             }
         }
     }
+
 
     public String nameFile(BazaDoc user){
         scanner.nextLine();
@@ -65,27 +64,34 @@ public class Methodiki {
         return FileName;
     }
 
-    public boolean createFile(BazaDoc user){
+    public boolean createFile(BazaDoc user) {
         try {
             File fileDoc = new File(BAZA_PATH + user.getNameFile() + ".txt");
 
-            if(fileDoc.exists()){
+            if (fileDoc.exists()) {
                 System.out.println("File already exists!");
-                FileWriter writeBaze = new FileWriter(BAZA_PATH + user.getNameFile() + ".txt");
-                writeBaze.write(toString());
+                FileWriter writeBaze = new FileWriter(fileDoc);
+                writeBaze.write(user.toString());
+                writeBaze.close();
                 return false;
             } else {
-                fileDoc.createNewFile();
-                System.out.println("File was made: " + fileDoc.getName());
-                return true;
+                if (fileDoc.createNewFile()) {
+                    System.out.println("File was made: " + fileDoc.getName());
+                    FileWriter writeBaze = new FileWriter(fileDoc);
+                    writeBaze.write(user.toString());
+                    writeBaze.close();
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
         } catch (IOException e) {
             System.out.println("Something went wrong: " + e.getMessage());
-            System.exit(0);
             return false;
         }
     }
+
 
     public boolean writeInFile(BazaDoc user){
         try{
