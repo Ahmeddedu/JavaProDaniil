@@ -6,12 +6,10 @@ public class Main {
     public static void main(String[] args) {
         int[] numbers = {2, 5, 8, 1, 9};
 
-        // Викликаємо методи
         System.out.println("Макс -  " + ArrayUtils.findMax(numbers));
         System.out.println("Сред - " + ArrayUtils.calculateAverage(numbers));
         System.out.println();
 
-        // Виводимо інформацію з анотацій через рефлексію
         Class<ArrayUtils> clazz = ArrayUtils.class;
         Method[] methods = clazz.getDeclaredMethods();
 
